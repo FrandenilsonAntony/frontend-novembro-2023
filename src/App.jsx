@@ -1,33 +1,17 @@
-import './App.css'
-import Card from './components/Card/Card';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./components/Home/Home";
+import ReadById from "./components/ReadById/ReadById";
 
-function App() {
-  const item1 = {
-    name: "Rick Sanchez",
-    imageUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-    tags: ["Status: Vivo", "Espécie: Humana", "Origem: Terra C-137"]
-  }
+export default function App() {
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<ReadById />} />
 
-  const item2 = {
-    name: "Morty Smith",
-    imageUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-    tags: ["Origem: Terra C-137"]
-  }
-
-  const item3 = {
-    name: "Summer Smith",
-    imageUrl: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
-  }
-
-  const items = [item1, item2, item3]
-
-  return (
-    <>
-      {items.map(function (element) {
-        return <Card item={element} />
-      })}
-    </>
+      </Routes>
+    </BrowserRouter>
+  
   )
 }
-
-export default App;
